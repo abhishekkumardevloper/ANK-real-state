@@ -682,15 +682,25 @@
   transform: translateY(-2px);
 }
 
-/* Contact Section */
+/* ================= CONTACT SECTION ================= */
+
+.contact-section {
+  background: #FFFFFF;
+  padding: 5rem 0;
+  padding-top: 3rem; /* header + mobile breathing space */
+  scroll-margin-top: 110px; /* fixed header safe */
+}
+
+/* GRID */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* mobile-safe */
   gap: 3rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+/* LEFT INFO */
 .contact-info h3 {
   font-family: 'Poppins', sans-serif;
   font-size: 2rem;
@@ -710,7 +720,7 @@
 }
 
 .contact-item:hover {
-  transform: translateX(8px);
+  transform: translateX(6px);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 
@@ -739,10 +749,12 @@
   font-size: 0.9rem;
 }
 
+/* FORM CARD */
 .contact-form-card {
   background: #FFFFFF;
   border: 1px solid #E5E5E5;
-  border-radius: 8px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
 }
 
 .contact-form-content {
@@ -754,6 +766,7 @@
   flex-direction: column;
   gap: 1.5rem;
 }
+
 
 .form-group {
   display: flex;
