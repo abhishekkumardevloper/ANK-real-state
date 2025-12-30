@@ -1055,3 +1055,14 @@
     line-height: 1.15;
   }
 }
+/* ================= FIX CONTACT SECTION HEADER OVERLAP ================= */
+
+.contact-section {
+  scroll-margin-top: 110px; /* anchor + mobile safe */
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding-top: 2rem;
+  }
+}
