@@ -1061,51 +1061,55 @@ a[href*="emergent"] {
   width: 100%;
 }
 
-/* HERO */
+/* ================= HERO FINAL OVERRIDE (OPTION 2) ================= */
+/* This block intentionally placed at END to avoid any overwrite */
+
 .hero-section {
-  height: 100vh;
-  background: url('/images/hero-real-estate.jpg') center/cover no-repeat;
-  position: relative;
+  min-height: 100vh !important;
+  padding-top: 90px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    #8b0f17 0%,
+    #b11226 45%,
+    #4a070b 100%
+  ) !important;
 }
 
 .hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(0,0,0,0.75),
-    rgba(0,0,0,0.3)
-  );
+  display: none !important;
 }
 
 .hero-content {
-  position: relative;
-  max-width: 720px;
-  padding: 0 20px;
-  color: #fff;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #ffffff !important;
 }
 
-.hero-badge {
-  background: #c1121f;
-  padding: 6px 14px;
-  border-radius: 20px;
-  display: inline-block;
-  margin-bottom: 18px;
+.hero-title {
+  color: #ffffff !important;
 }
 
 .hero-title span {
-  color: #e63946;
+  color: #ffd6d9 !important;
 }
 
-.hero-stats {
-  display: flex;
-  gap: 40px;
-  margin-top: 40px;
+.hero-subtitle {
+  color: #f2f2f2 !important;
+}
+
+.hero-badge {
+  background: rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
 }
 
 .hero-stats h3 {
-  color: #e63946;
-  font-size: 32px;
+  color: #ffd6d9 !important;
+}
+
+.hero-stats p {
+  color: #f1f1f1 !important;
 }
