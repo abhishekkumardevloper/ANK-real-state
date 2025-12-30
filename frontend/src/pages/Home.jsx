@@ -38,45 +38,64 @@ const Home = () => {
   return (
     <div className="home-container">
 
-      {/* ================= HEADER / NAVBAR ================= */}
-      <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-        <div className="header-content">
+  {/* ================= HEADER / NAVBAR ================= */}
+  <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+    <div className="header-content">
 
-          {/* LOGO IMAGE */}
-          <div className="logo">
-            <img
-              src="/LOgo5.png"
-              alt="ANK Realty"
-              className="logo-img"
-            />
-          </div>
+      {/* LOGO */}
+      <div className="logo">
+        <img
+          src="/LOgo5.png"
+          alt="ANK Realty"
+          className="logo-img"
+        />
+      </div>
 
-          <nav className={`nav ${mobileMenuOpen ? 'nav-open' : ''}`}>
-            <a href="#home">Home</a>
-            <a href="#properties">Properties</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-          </nav>
+      {/* MOBILE MENU BUTTON */}
+      <button
+        className="mobile-menu-btn"
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      >
+        {mobileMenuOpen ? <X /> : <Menu />}
+      </button>
 
-          <button
-            className="book-visit-btn"
-            onClick={() =>
-              document.getElementById('contact')
-                .scrollIntoView({ behavior: 'smooth' })
-            }
-          >
-            Book Visit
-          </button>
+      {/* NAV LINKS */}
+      <nav className={`nav ${mobileMenuOpen ? 'nav-open' : ''}`}>
+        <a onClick={() => setMobileMenuOpen(false)} href="#home">Home</a>
+        <a onClick={() => setMobileMenuOpen(false)} href="#properties">Properties</a>
+        <a onClick={() => setMobileMenuOpen(false)} href="#about">About</a>
+        <a onClick={() => setMobileMenuOpen(false)} href="#services">Services</a>
+        <a onClick={() => setMobileMenuOpen(false)} href="#contact">Contact</a>
 
-          <button
-            className="mobile-menu-btn"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X /> : <Menu />}
-          </button>
-        </div>
-      </header>
+        {/* MOBILE ONLY CTA */}
+        <button
+          className="mobile-book-btn"
+          onClick={() => {
+            setMobileMenuOpen(false);
+            document
+              .getElementById('contact')
+              .scrollIntoView({ behavior: 'smooth' });
+          }}
+        >
+          Book Visit
+        </button>
+      </nav>
+
+      {/* DESKTOP CTA */}
+      <button
+        className="book-visit-btn"
+        onClick={() =>
+          document
+            .getElementById('contact')
+            .scrollIntoView({ behavior: 'smooth' })
+        }
+      >
+        Book Visit
+      </button>
+
+    </div>
+  </header>
+
 
       {/* ================= HERO SECTION (UPGRADED) ================= */}
       <section id="home" className="hero-section">
