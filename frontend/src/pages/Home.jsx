@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { MapPin, Phone, Mail, ArrowRight, Star, Facebook, Instagram, Linkedin, Twitter, Menu, X, Home as HomeIcon, Briefcase, LandPlot, Crown } from 'lucide-react';
+import {
+  MapPin, Phone, Mail, ArrowRight, Star,
+  Facebook, Instagram, Linkedin, Twitter,
+  Menu, X
+} from 'lucide-react';
+
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
@@ -12,16 +17,15 @@ const Home = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const filteredProperties = selectedCategory === 'all' 
-    ? mockProperties 
-    : mockProperties.filter(p => p.category === selectedCategory);
+  const filteredProperties =
+    selectedCategory === 'all'
+      ? mockProperties
+      : mockProperties.filter(p => p.category === selectedCategory);
 
   const categories = [
     { id: 'all', label: 'All Properties' },
@@ -33,44 +37,99 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      {/* Header */}
+
+      {/* ================= HEADER / NAVBAR ================= */}
       <header className={`header ${scrolled ? 'scrolled' : ''}`}>
         <div className="header-content">
+
+          {/* LOGO IMAGE */}
           <div className="logo">
-            <span className="logo-ank">ANK</span>
-            <span className="logo-realty">REALTY</span>
+            <img
+              src="/images/ank-realty-logo.png"
+              alt="ANK Realty"
+              className="logo-img"
+            />
           </div>
-          
+
           <nav className={`nav ${mobileMenuOpen ? 'nav-open' : ''}`}>
-            <a href="#home" onClick={() => setMobileMenuOpen(false)}>Home</a>
-            <a href="#properties" onClick={() => setMobileMenuOpen(false)}>Properties</a>
-            <a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a>
-            <a href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
+            <a href="#home">Home</a>
+            <a href="#properties">Properties</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
           </nav>
 
-          <button className="book-visit-btn" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
+          <button
+            className="book-visit-btn"
+            onClick={() =>
+              document.getElementById('contact')
+                .scrollIntoView({ behavior: 'smooth' })
+            }
+          >
             Book Visit
           </button>
 
-          <button className="mobile-menu-btn" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* ================= HERO SECTION (UPGRADED) ================= */}
       <section id="home" className="hero-section">
+        <div className="hero-overlay" />
+
         <div className="hero-content">
-          <h1 className="hero-title">Smart Real Estate. Real Value.</h1>
-          <p className="hero-subtitle">Premium properties designed for modern buyers and investors.</p>
+          <span className="hero-badge">Premium Real Estate</span>
+
+          <h1 className="hero-title">
+            Discover <span>Luxury Properties</span><br />
+            That Define Your Lifestyle
+          </h1>
+
+          <p className="hero-subtitle">
+            Smart investments • Prime locations • Trusted deals with ANK Realty
+          </p>
+
           <div className="hero-cta">
-            <button className="cta-primary" onClick={() => document.getElementById('properties').scrollIntoView({ behavior: 'smooth' })}>
+            <button
+              className="cta-primary"
+              onClick={() =>
+                document.getElementById('properties')
+                  .scrollIntoView({ behavior: 'smooth' })
+              }
+            >
               Explore Properties
             </button>
-            <button className="cta-secondary" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
-              Contact Us
+
+            <button
+              className="cta-secondary"
+              onClick={() =>
+                document.getElementById('contact')
+                  .scrollIntoView({ behavior: 'smooth' })
+              }
+            >
+              Free Consultation
             </button>
+          </div>
+
+          {/* TRUST STATS */}
+          <div className="hero-stats">
+            <div>
+              <h3>500+</h3>
+              <p>Happy Clients</p>
+            </div>
+            <div>
+              <h3>12+</h3>
+              <p>Years Experience</p>
+            </div>
+            <div>
+              <h3>100%</h3>
+              <p>Verified Deals</p>
+            </div>
           </div>
         </div>
       </section>
