@@ -45,7 +45,7 @@ const Home = () => {
           {/* LOGO IMAGE */}
           <div className="logo">
             <img
-              src="/images/LOgo5.png"
+              src="/public/LOgo5.png"
               alt="ANK Realty"
               className="logo-img"
             />
